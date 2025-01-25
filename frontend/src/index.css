@@ -1,0 +1,116 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  font-family: "Inter", serif;
+}
+
+body {
+  background-color: white;
+}
+
+@layer base {
+  ::-webkit-scrollbar {
+    @apply w-[8px] h-[3px] bg-white;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gray rounded-md;
+  }
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 1440px;
+  height: auto;
+}
+
+.line-clamp-1 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 1; /* Show only 1 lines */
+}
+
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2; /* Show only 2 lines */
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.swiper-pagination-bullet-active {
+  background: #091035 !important;
+}
+
+.banner-gradient {
+  background-image: linear-gradient(
+    to bottom,
+    #ffffff,
+    #fbfbfb,
+    #f8f8f8,
+    #f4f4f4,
+    #f1f1f1
+  );
+}
+
+.react-multi-carousel-list {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 1rem;
+  padding: 2.5rem 1.5rem;
+}
+
+.slick-arrow::before {
+  color: #091035 !important;
+  font-size: 1.25rem !important;
+}
+
+.slick-prev.slick-disabled:before {
+  opacity: 0 !important;
+}
+
+.slick-next.slick-disabled:before {
+  opacity: 0 !important;
+}
+
+.slick-track {
+  display: flex !important;
+  justify-content: start !important;
+  align-items: center !important;
+  gap: 10px !important;
+}
+
+.gradient-seperator {
+  background-image: linear-gradient(
+    to top,
+    #c4c3c3,
+    #9f8e93,
+    #765d6e,
+    #463350,
+    #091035
+  );
+}
