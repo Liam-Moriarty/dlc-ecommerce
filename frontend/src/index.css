@@ -31,6 +31,31 @@ body {
   height: auto;
 }
 
+.event {
+  position: relative;
+  background-color: #f0bb78;
+  padding: 20px;
+  border-radius: 20px;
+}
+
+.event::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 50%;
+  height: 50%;
+  background: url("./assets/test.png") no-repeat bottom right;
+  background-size: contain;
+  z-index: 1;
+  opacity: 0.5; /* Adjust this value to control the transparency of the image */
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+}
+
 .line-clamp-1 {
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -61,17 +86,6 @@ input[type="number"] {
 
 .swiper-pagination-bullet-active {
   background: #091035 !important;
-}
-
-.banner-gradient {
-  background-image: linear-gradient(
-    to bottom,
-    #ffffff,
-    #fbfbfb,
-    #f8f8f8,
-    #f4f4f4,
-    #f1f1f1
-  );
 }
 
 .react-multi-carousel-list {

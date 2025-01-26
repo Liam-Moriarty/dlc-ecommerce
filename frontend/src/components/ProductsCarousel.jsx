@@ -1,10 +1,17 @@
-import React, { useState } from "react";
-import Button from "./Button";
-
+import { useState } from "react";
 import { MdOutlineArrowUpward } from "react-icons/md";
 import { FaHeart } from "react-icons/fa";
 
-const Products = ({ label, category, price, stock, description, image }) => {
+import Button from "./Button";
+
+const ProductsCarousel = ({
+  label,
+  category,
+  price,
+  stock,
+  description,
+  image,
+}) => {
   const [favorite, setFavorite] = useState(false);
 
   const handleFavorite = (e) => {
@@ -13,7 +20,7 @@ const Products = ({ label, category, price, stock, description, image }) => {
   };
 
   return (
-    <div className="col-span-1 shadow-lg rounded-xl h-[21rem] bg-primary flex flex-col">
+    <div className="rounded-xl h-[21rem] bg-primary flex flex-col">
       <div className="relative bg-gray rounded-t-xl w-full h-[12rem]">
         <img
           src={image}
@@ -64,4 +71,4 @@ const Products = ({ label, category, price, stock, description, image }) => {
   );
 };
 
-export default Products;
+export default ProductsCarousel;
