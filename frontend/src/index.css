@@ -121,10 +121,10 @@ input[type="number"] {
 .gradient-seperator {
   background-image: linear-gradient(
     to top,
-    #c4c3c3,
-    #9f8e93,
-    #765d6e,
-    #463350,
-    #091035
+    #ffcc87,
+    #ffc4af,
+    #ffc9d3,
+    #e6d2e2,
+    #d9d9d9
   );
 }

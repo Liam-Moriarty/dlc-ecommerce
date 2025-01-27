@@ -13,12 +13,12 @@ const Header = () => {
           </p>
 
           <h1 className="text-4xl max-lg:text-3xl text-black-text flex-wrap leading-tight font-bold tracking-tight uppercase mb-8 max-lg:mb-6">
-            Air Jordan 6 g x EastSide
+            Scotsman Machines Just Arrived
           </h1>
 
           <p className="text-base flex-wrap font-medium text-gray-text tracking-tight capitalize leading-tight mb-8 max-lg:mb-6">
-            Feel unbeatable from the tee box to the final putt in a design
-            that's pure early MJ;speed, class
+            Discover cutting-edge vending technology with our new, sleek, and
+            convenient machines
           </p>
 
           <Button
