@@ -16,6 +16,16 @@ body {
   background-color: white;
 }
 
+@layer components {
+  .input-auth-container {
+    @apply max-w-80 p-2 rounded-md bg-auth-placeholder;
+  }
+
+  .input-auth {
+    @apply outline-none w-full bg-transparent text-auth-white-text text-sm placeholder:text-auth-placeholder-text;
+  }
+}
+
 @layer base {
   ::-webkit-scrollbar {
     @apply w-[8px] h-[3px] bg-white;
@@ -54,6 +64,31 @@ body {
 .content {
   position: relative;
   z-index: 2;
+}
+
+.dropdownProfile {
+  position: absolute;
+  top: 3.5rem;
+  right: -1rem;
+  width: 100px;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: #f1f1f1;
+  border: 1px solid #c4c3c3;
+  z-index: 50;
+}
+
+.dropdownProfile::before {
+  content: "";
+  position: absolute;
+  top: -0.7rem;
+  right: 1.1rem;
+  width: 20px;
+  height: 20px;
+  transform: rotate(45deg);
+  background-color: #f1f1f1;
+  border-left: 1px solid #c4c3c3;
+  border-top: 1px solid #c4c3c3;
 }
 
 .line-clamp-1 {
@@ -126,5 +161,16 @@ input[type="number"] {
     #ffc9d3,
     #e6d2e2,
     #d9d9d9
+  );
+}
+
+.auth-gradient {
+  background-image: linear-gradient(
+    to left top,
+    #6d54b5,
+    #5c4894,
+    #4c3c74,
+    #3c3155,
+    #2c2638
   );
 }

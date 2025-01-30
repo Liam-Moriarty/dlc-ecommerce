@@ -4,6 +4,8 @@ import cors from "cors";
 import dotenv from "dotenv";
 
 // ROUTES
+import authRoutes from "./routes/authRoutes.js";
+import profileRoutes from "./routes/profileRoutes.js";
 
 // CONFIGURATION
 dotenv.config();
@@ -12,6 +14,10 @@ const app = express();
 // MIDDLEWARES
 app.use(cors());
 app.use(express.json());
+
+// ROUTES
+app.use("/", authRoutes);
+app.use("/profile", profileRoutes);
 
 const PORT = process.env.PORT || 8000;
 const MONGO_URL = process.env.MONGO_URL;

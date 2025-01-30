@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Login from "./pages/Login";
@@ -8,21 +8,27 @@ import { Navbar, Header, Footer } from "./components/layouts/index";
 
 function App() {
   return (
-    <BrowserRouter>
-      <main className="container max-desktop:w-full">
-        <Navbar />
-        <Header />
+    <Routes>
+      <Route path="/sign-up" element={<Signup />} />
+      <Route path="/login" element={<Login />} />
 
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/sign-up" element={<Signup />} />
-          <Route path="/login" element={<Login />} />
-        </Routes>
+      <Route
+        path="*"
+        element={
+          <main className="container max-desktop:w-full">
+            <Navbar />
+            <Header />
 
-        <Footer />
-      </main>
-    </BrowserRouter>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/about" element={<About />} />
+            </Routes>
+
+            <Footer />
+          </main>
+        }
+      />
+    </Routes>
   );
 }
 

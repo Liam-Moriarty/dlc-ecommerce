@@ -3,7 +3,7 @@ import { FaShoppingCart } from "react-icons/fa";
 import { FaBell } from "react-icons/fa";
 
 import logo from "../../assets/machine-learning-(1).png";
-import profile from "../../assets/gear5th.png";
+import ProfileDropdown from "../ProfileDropdown";
 
 const Navbar = () => {
   return (
@@ -31,13 +31,7 @@ const Navbar = () => {
             <FaBell className="text-xl text-black-text font-semibold cursor-pointer" />
           </div>
 
-          <div className="flex justify-start items-center w-7 h-7 rounded-full cursor-pointer">
-            <img
-              src={profile}
-              alt="profile image"
-              className="w-full h-full rounded-full object-cover"
-            />
-          </div>
+          <ProfileDropdown />
         </div>
       </div>
     </div>

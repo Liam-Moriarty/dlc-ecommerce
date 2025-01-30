@@ -32,6 +32,16 @@ export default {
         // hovers
         "black-hover": "#151c46",
         "white-hover": "#e4e4e4",
+
+        // login / signup colors
+        "auth-main": "#403A4D",
+        "auth-black": "#2c2638",
+        "auth-primary-text": "#ada4d1",
+        "auth-white-text": "#faf9fc",
+        "auth-gray-text": "#9b97a4",
+        "auth-placeholder": "#3c364c",
+        "auth-placeholder-text": "#6a667c",
+        "auth-primary-button": "#6d54b5",
       },
 
       screens: {
