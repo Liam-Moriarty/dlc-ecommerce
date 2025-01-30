@@ -1,17 +1,30 @@
 import React, { useState } from "react";
 import profile from "../assets/gear5th.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { logout } from "../auth/loginSlice";
 
 const ProfileDropdown = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [openProfile, setOpenProfile] = useState(false);
 
   const handleProfileDropdown = () => {
     setOpenProfile(!openProfile);
   };
 
+  const email = window.localStorage.getItem("email");
+
+  console.log(email);
+
+  const handleLogout = () => {
+    dispatch(logout());
+    navigate("/login");
+  };
+
   const dropdownLinks = [
-    { label: "Profile", path: "/profile" },
-    { label: "Logout", path: "/login" },
+    { label: "Profile", path: "/profile", click: null },
+    { label: "Logout", path: "/login", click: handleLogout },
   ];
   return (
     <div
@@ -41,11 +54,12 @@ const ProfileDropdown = () => {
         </div>
 
         <ul className="w-auto h-auto flex flex-col gap-2 items-center">
-          {dropdownLinks.map(({ label, path }, index) => (
+          {dropdownLinks.map(({ label, path, click }, index) => (
             <Link
               key={index}
               to={path}
               className="w-full text-sm font-medium text-black-text hover:text-gray-text text-center"
+              onClick={click}
             >
               {label}
             </Link>
