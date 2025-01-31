@@ -59,12 +59,12 @@ const LoginForm = () => {
       className="w-full h-full p-5 flex flex-col items-center justify-center"
       onSubmit={handleSubmit}
     >
-      <h1 className="text-2xl text-center text-auth-white-text font-bold uppercase leading-tight">
+      <h1 className="text-2xl max-sm:text-lg text-center text-auth-white-text font-bold uppercase leading-tight">
         Login to DLC
       </h1>
 
       {/* Inputs */}
-      <div className="w-[20rem] h-auto flex flex-col gap-2 my-10">
+      <div className="w-[20rem] max-sm:w-full h-auto flex flex-col max-sm:items-center gap-2 my-10">
         <div
           className={`input-auth-container ${
             error === "Email or Password is empty" ||
@@ -112,7 +112,7 @@ const LoginForm = () => {
         label="Submit"
         submit
         variant="primary"
-        className="!bg-auth-primary-button !text-auth-white-text text-sm !p-2 !w-[20rem]"
+        className="!bg-auth-primary-button !text-auth-white-text text-sm !p-2 !max-w-[20rem] w-[20rem] max-sm:!w-full max-sm:!text-xs !border-none"
       />
 
       <p className="text-xs mt-5 text-auth-gray-text font-light">

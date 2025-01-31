@@ -4,9 +4,9 @@ import SignupForm from "../components/SignupForm";
 
 const Signup = () => {
   return (
-    <div className="h-screen max-desktop:w-full bg-auth-main flex justify-center items-center p-5">
-      <div className="w-[60rem] h-[40rem] p-5 flex bg-auth-black gap-2 rounded-lg">
-        <div className="relative w-full h-full rounded-lg">
+    <div className="w-full h-screen max-desktop:w-full bg-auth-main flex justify-center items-center p-5">
+      <div className="w-[60rem] h-[40rem] max-md:w-full max-md:h-auto p-5 flex bg-auth-black gap-2 rounded-lg">
+        <div className="relative w-full h-full rounded-lg max-md:hidden">
           <img
             src={signupImg}
             alt="signup image"

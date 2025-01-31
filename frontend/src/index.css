@@ -18,11 +18,11 @@ body {
 
 @layer components {
   .input-auth-container {
-    @apply max-w-80 p-2 rounded-md bg-auth-placeholder;
+    @apply max-w-80 max-sm:w-full max-sm:p-1 p-2 rounded-md bg-auth-placeholder;
   }
 
   .input-auth {
-    @apply outline-none w-full bg-transparent text-auth-white-text text-sm placeholder:text-auth-placeholder-text;
+    @apply outline-none w-full bg-transparent text-auth-white-text text-sm max-sm:text-xs placeholder:text-auth-placeholder-text;
   }
 
   .input-error {
@@ -72,9 +72,9 @@ body {
 
 .dropdownProfile {
   position: absolute;
-  top: 3.5rem;
-  right: -1rem;
-  width: 100px;
+  top: 3.8rem;
+  right: 1rem;
+  width: 120px;
   padding: 10px;
   border-radius: 8px;
   background-color: #f1f1f1;

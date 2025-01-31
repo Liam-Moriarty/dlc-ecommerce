@@ -14,7 +14,7 @@ const Navbar = () => {
         <div className="flex justify-start items-center w-full gap-2">
           <img src={logo} alt="logo" className="w-10 h-10 object-cover" />
 
-          <div className="flex justify-start items-center gap-2 w-[30rem] border border-gray rounded-full py-2 px-2">
+          <div className="flex justify-start items-center gap-2 max-w-[30rem] w-full border border-gray rounded-full py-2 px-2">
             <IoSearchSharp className="text-base text-gray-text font-semibold" />
             <input
               type="text"

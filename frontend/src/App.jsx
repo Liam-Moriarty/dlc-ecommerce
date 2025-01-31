@@ -4,6 +4,7 @@ import About from "./pages/About";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Layout from "./components/layouts/Layout";
+import Profile from "./pages/Profile";
 
 // Protected Route wrapper component
 const ProtectedRoute = ({ children }) => {
@@ -42,6 +43,7 @@ function App() {
       >
         <Route index element={<Home />} />
         <Route path="about" element={<About />} />
+        <Route path="profile" element={<Profile />} />
       </Route>
 
       {/* Catch all route - redirect to login if not authenticated */}

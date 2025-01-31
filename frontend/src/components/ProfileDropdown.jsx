@@ -15,55 +15,58 @@ const ProfileDropdown = () => {
 
   const email = window.localStorage.getItem("email");
 
-  console.log(email);
+  const splitEmail = email.split("@")[0];
+
+  console.log(splitEmail);
 
   const handleLogout = () => {
     dispatch(logout());
     navigate("/login");
   };
 
-  const dropdownLinks = [
-    { label: "Profile", path: "/profile", click: null },
-    { label: "Logout", path: "/login", click: handleLogout },
-  ];
   return (
     <div
-      className="relative flex justify-start items-center w-7 h-7 rounded-full cursor-pointer"
+      className="w-full h-auto relative flex justify-start items-center cursor-pointer py-2 px-4 bg-black rounded-full"
       onClick={handleProfileDropdown}
     >
-      <img
-        src={profile}
-        alt="profile image"
-        className="w-full h-full rounded-full object-cover"
-      />
+      <p className="w-full text-sm font-semibold text-white-text text-center line-clamp-1">
+        {email}
+      </p>
 
       <div
         className={`flex flex-col dropdownProfile cursor-default ${
           openProfile ? "block" : "hidden"
         }`}
       >
-        <div className="w-auto h-auto flex flex-col gap-2 items-center">
-          <img
-            src={profile}
-            alt="profile image"
-            className="w-7 h-7 rounded-full object-cover cursor-default"
-          />
-          <h1 className="w-full text-xs font-medium text-black-text mb-2 text-center line-clamp-1 cursor-default">
-            Moriarty
-          </h1>
+        <div className="w-auto h-auto flex flex-col items-center">
+          <p className="w-full text-sm font-semibold text-black-text text-center">
+            Good Day!
+          </p>
+          {email ? (
+            <h1 className="w-full text-sm font-medium text-black-text mb-2 text-center line-clamp-1 cursor-default capitalize">
+              {splitEmail}
+            </h1>
+          ) : (
+            <h1 className="w-full text-xs font-medium text-black-text mb-2 text-center line-clamp-1 cursor-default capitalize">
+              User
+            </h1>
+          )}
         </div>
 
         <ul className="w-auto h-auto flex flex-col gap-2 items-center">
-          {dropdownLinks.map(({ label, path, click }, index) => (
-            <Link
-              key={index}
-              to={path}
-              className="w-full text-sm font-medium text-black-text hover:text-gray-text text-center"
-              onClick={click}
-            >
-              {label}
-            </Link>
-          ))}
+          <Link
+            to="/profile"
+            className="w-full text-sm font-medium text-black-text hover:text-gray-text text-center"
+          >
+            Profile
+          </Link>
+
+          <Link
+            onClick={handleLogout}
+            className="w-full text-sm font-medium text-black-text hover:text-gray-text text-center"
+          >
+            Logout
+          </Link>
         </ul>
       </div>
     </div>
