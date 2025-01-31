@@ -113,6 +113,8 @@ export const login = async (req, res) => {
       email: client.email,
       result: jwtToken,
       company: client.company,
+      contacts: client.contacts,
+      city: client.city,
     });
   } catch (error) {
     res.status(400).json({ status: "Failed", message: error.message });
