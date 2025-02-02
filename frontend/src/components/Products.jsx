@@ -3,8 +3,17 @@ import Button from "./Button";
 
 import { MdOutlineArrowUpward } from "react-icons/md";
 import { FaHeart } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
-const Products = ({ label, category, price, stock, description, image }) => {
+const Products = ({
+  label,
+  category,
+  price,
+  stock,
+  description,
+  image,
+  _id,
+}) => {
   const [favorite, setFavorite] = useState(false);
 
   const handleFavorite = (e) => {
@@ -54,11 +63,10 @@ const Products = ({ label, category, price, stock, description, image }) => {
           {description}
         </span>
 
-        <Button
-          variant="primary"
-          label={`₱ ${Number(price).toLocaleString()}`}
-          className="absolute bottom-2 left-2 text-xs font-semibold !px-2"
-        />
+        <Link
+          to={`/product-details/${_id}`}
+          className="absolute bottom-2 left-2 text-xs font-semibold flex justify-center items-center whitespace-pre gap-2 rounded-md py-1 bg-black px-2 text-white-text border border-black hover:bg-black-hover"
+        >{`₱ ${Number(price).toLocaleString()}`}</Link>
       </div>
     </div>
   );

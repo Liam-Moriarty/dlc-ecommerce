@@ -5,15 +5,16 @@ import Products from "./Products";
 
 const TodaysPick = () => {
   const products = saleCards.map(
-    ({ label, category, price, stock, description, image }, index) => (
+    ({ label, category, price, stock, description, image, _id }) => (
       <Products
-        key={index}
+        key={_id}
         label={label}
         category={category}
         price={price}
         stock={stock}
         description={description}
         image={image}
+        _id={_id}
       />
     )
   );

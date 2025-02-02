@@ -70,6 +70,7 @@ export const categories = [
 
 export const saleCards = [
   {
+    _id: "1",
     label: "dlc-fws-002",
     category: "food warming showcase",
     price: "40000",
@@ -79,6 +80,7 @@ export const saleCards = [
     image: dummyImg,
   },
   {
+    _id: "2",
     label: "scotsman n0922 prodigy plus",
     category: "scotsman",
     price: "18500",
@@ -88,6 +90,7 @@ export const saleCards = [
     image: dummyImg2,
   },
   {
+    _id: "3",
     label: "dlc-fws-003",
     category: "food warming showcase",
     price: "50000",
@@ -97,6 +100,7 @@ export const saleCards = [
     image: dummyImg3,
   },
   {
+    _id: "4",
     label: "cup sealer",
     category: "uncategorized",
     price: "10999",
@@ -106,6 +110,7 @@ export const saleCards = [
     image: dummyImg4,
   },
   {
+    _id: "5",
     label: "anvil dfc2200",
     category: "other equipments",
     price: "32500",
@@ -115,6 +120,7 @@ export const saleCards = [
     image: dummyImg,
   },
   {
+    _id: "6",
     label: "tea & coffee brewer cof-002",
     category: "coffee equipment",
     price: "26999",
@@ -124,6 +130,7 @@ export const saleCards = [
     image: dummyImg2,
   },
   {
+    _id: "7",
     label: "anvil dhc4900-002",
     category: "carpigiani",
     price: "15999",
@@ -133,6 +140,7 @@ export const saleCards = [
     image: dummyImg4,
   },
   {
+    _id: "8",
     label: "dlc-fws-002",
     category: "food warming showcase",
     price: "40000",
@@ -142,6 +150,7 @@ export const saleCards = [
     image: dummyImg,
   },
   {
+    _id: "9",
     label: "scotsman n0922 prodigy plus",
     category: "scotsman",
     price: "18500",
@@ -151,6 +160,7 @@ export const saleCards = [
     image: dummyImg2,
   },
   {
+    _id: "10",
     label: "anvil dfc2200",
     category: "other equipments",
     price: "32500",

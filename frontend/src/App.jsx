@@ -5,6 +5,7 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Layout from "./components/layouts/Layout";
 import Profile from "./pages/Profile";
+import ProductDetails from "./pages/ProductDetails";
 
 // Protected Route wrapper component
 const ProtectedRoute = ({ children }) => {
@@ -44,6 +45,7 @@ function App() {
         <Route index element={<Home />} />
         <Route path="about" element={<About />} />
         <Route path="profile" element={<Profile />} />
+        <Route path="/product-details/:id" element={<ProductDetails />} />
       </Route>
 
       {/* Catch all route - redirect to login if not authenticated */}
