@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import profile from "../assets/gear5th.png";
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { logout } from "../auth/loginSlice";
@@ -9,17 +8,18 @@ const ProfileDropdown = () => {
   const dispatch = useDispatch();
   const [openProfile, setOpenProfile] = useState(false);
 
+  const email = window.localStorage.getItem("email");
+
   const handleProfileDropdown = () => {
     setOpenProfile(!openProfile);
   };
 
-  const email = window.localStorage.getItem("email");
-
-  const splitEmail = email.split("@")[0];
+  const splitEmail = email ? email.split("@")[0] : "User";
 
   console.log(splitEmail);
 
-  const handleLogout = () => {
+  const handleLogout = (e) => {
+    e.preventDefault();
     dispatch(logout());
     navigate("/login");
   };
@@ -30,7 +30,7 @@ const ProfileDropdown = () => {
       onClick={handleProfileDropdown}
     >
       <p className="w-full text-sm font-semibold text-white-text text-center line-clamp-1">
-        {email}
+        {email || "User"}
       </p>
 
       <div

@@ -3,11 +3,11 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 const baseQuery = fetchBaseQuery({
   baseUrl: "http://localhost:3000/",
   prepareHeaders: (headers, { getState }) => {
-    const token = getState().signupForm.token; // Access token from Redux state
+    const token = getState().signupForm.token; // Retrieve the token from Redux state
     if (token) {
-      headers.set("Authorization", `Bearer ${token}`);
+      headers.set("Authorization", `Bearer ${token}`); // Attach token to headers
     }
-    return headers;
+    return headers; // Return modified headers
   },
 });
 

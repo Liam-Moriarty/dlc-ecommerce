@@ -47,7 +47,7 @@ export const changePassword = async (req, res) => {
     if (!currentPassword || !password || !confirmPassword) {
       return res.status(400).json({
         status: "Failed",
-        message: "All fields are required!!",
+        message: "all fields are required!!",
       });
     }
 
@@ -61,14 +61,14 @@ export const changePassword = async (req, res) => {
     if (!client || !verified) {
       return res.status(400).json({
         status: "Failed",
-        message: "Client not found or invalid current password",
+        message: "client not found or invalid current password",
       });
     }
 
     if (req.body.password !== req.body.confirmPassword) {
       return res.status(400).json({
         status: "Failed",
-        message: "Password didn't match",
+        message: "password didn't match",
       });
     }
 
@@ -85,7 +85,7 @@ export const changePassword = async (req, res) => {
   } catch (error) {
     res.status(400).json({
       status: "Failed",
-      message: "Failed to update password please try again",
+      message: "failed to update password please try again",
     });
   }
 };

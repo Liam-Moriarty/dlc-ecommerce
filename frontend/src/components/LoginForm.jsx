@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import Button from "./Button";
 import { Link, useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useLoginUserMutation } from "../api/authenticatonApi";
 import { createLogin } from "../auth/loginSlice";
 
 const LoginForm = () => {
-  const loginState = useSelector((state) => state.logoutForm);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -33,12 +32,18 @@ const LoginForm = () => {
       localStorage.setItem("token", result.result);
       localStorage.setItem("email", result.email);
 
+      dispatch(
+        createLogin({
+          email: result.email,
+          token: result.result,
+        })
+      );
+
       setLoginForm({
         email: "",
         password: "",
       });
       setError("");
-      dispatch(createLogin({ email: result.email, token: result.result }));
       navigate("/");
     } catch (error) {
       const errorMessage = error?.data?.message || "Something went wrong";

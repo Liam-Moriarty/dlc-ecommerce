@@ -4,15 +4,26 @@ import { FaBell } from "react-icons/fa";
 
 import logo from "../../assets/machine-learning-(1).png";
 import ProfileDropdown from "../ProfileDropdown";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+  const navigate = useNavigate();
+
+  const handleHomeNavigation = () => {
+    navigate("/");
+  };
   return (
     <div className="w-full h-auto">
       {/* top side */}
       <div className="w-full flex justify-between items-center px-10 py-4 gap-4 max-md:hidden bg-primary border-b border-gray">
         {/* middle */}
         <div className="flex justify-start items-center w-full gap-2">
-          <img src={logo} alt="logo" className="w-10 h-10 object-cover" />
+          <img
+            src={logo}
+            alt="logo"
+            className="w-10 h-10 object-cover cursor-pointer"
+            onClick={handleHomeNavigation}
+          />
 
           <div className="flex justify-start items-center gap-2 max-w-[30rem] w-full border border-gray rounded-full py-2 px-2">
             <IoSearchSharp className="text-base text-gray-text font-semibold" />

@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { authenticationApi } from "../api/authenticatonApi";
 
 const initialState = {
   email: localStorage.getItem("email") || null,
@@ -13,22 +14,16 @@ const loginSlice = createSlice({
       const { email, token } = action.payload;
       state.email = email;
       state.token = token;
-      localStorage.setItem("email", email);
-      localStorage.setItem("token", token);
     },
     logout: (state, action) => {
       state.email = null;
       state.token = null;
-      localStorage.removeItem("email");
-      localStorage.removeItem("token");
-      localStorage.removeItem("signup");
+      localStorage.clear();
+
       authenticationApi.util.resetApiState();
     },
   },
 });
-
-// Log the initialState
-console.log("Initial State:", initialState);
 
 export const { createLogin, logout } = loginSlice.actions;
 

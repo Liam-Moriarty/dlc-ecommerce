@@ -26,7 +26,15 @@ body {
   }
 
   .input-error {
-    @apply border border-red;
+    @apply border border-red text-sm max-sm:text-xs;
+  }
+
+  .profile-input {
+    @apply p-1 outline-none bg-transparent border-b border-gray w-1/2 max-sm:w-full text-base max-md:text-sm text-black-text font-semibold;
+  }
+
+  .profile-label {
+    @apply p-1 text-base text-gray-text font-semibold max-md:text-sm;
   }
 }
 
