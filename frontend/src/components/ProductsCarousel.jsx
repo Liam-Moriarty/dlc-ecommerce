@@ -6,10 +6,10 @@ import Button from "./Button";
 import { Link } from "react-router-dom";
 
 const ProductsCarousel = ({
-  label,
+  product,
   category,
   price,
-  stock,
+  quantityInStock,
   description,
   image,
   _id,
@@ -51,12 +51,12 @@ const ProductsCarousel = ({
           </span>
 
           <span className="flex justify-start items-center text-sm text-red-text font-semibold whitespace-pre">
-            <MdOutlineArrowUpward /> {stock} left
+            <MdOutlineArrowUpward /> {quantityInStock} left
           </span>
         </div>
 
         <span className="line-clamp-1 text-sm text-black-text font-semibold">
-          {label}
+          {product}
         </span>
 
         <span className="line-clamp-2 text-sm text-black-text font-semibold capitalize">

@@ -1,10 +1,11 @@
 import { IoSearchSharp } from "react-icons/io5";
 import { FaShoppingCart } from "react-icons/fa";
 import { FaBell } from "react-icons/fa";
+import { FaHeart } from "react-icons/fa";
 
 import logo from "../../assets/machine-learning-(1).png";
 import ProfileDropdown from "../ProfileDropdown";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -38,7 +39,13 @@ const Navbar = () => {
         {/* right */}
         <div className="w-auto h-auto flex justify-end items-center gap-4">
           <div className="w-auto h-auto flex justify-end items-center gap-4 pr-3 border-r-2 border-gray">
-            <FaShoppingCart className="text-xl text-black-text font-semibold cursor-pointer" />
+            <Link to="/favorites" className="w-auto h-auto">
+              <FaHeart className="text-xl text-black-text font-semibold cursor-pointer" />
+            </Link>
+
+            <Link to="/cart" className="w-auto h-auto">
+              <FaShoppingCart className="text-xl text-black-text font-semibold cursor-pointer" />
+            </Link>
             <FaBell className="text-xl text-black-text font-semibold cursor-pointer" />
           </div>
 

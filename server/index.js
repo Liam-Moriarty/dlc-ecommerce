@@ -6,6 +6,7 @@ import dotenv from "dotenv";
 // ROUTES
 import authRoutes from "./routes/authRoutes.js";
 import profileRoutes from "./routes/profileRoutes.js";
+import productsRoutes from "./routes/productsRoutes.js";
 
 // CONFIGURATION
 dotenv.config();
@@ -18,6 +19,8 @@ app.use(express.json());
 // ROUTES
 app.use("/", authRoutes);
 app.use("/profile", profileRoutes);
+
+app.use("/", productsRoutes);
 
 const PORT = process.env.PORT || 8000;
 const MONGO_URL = process.env.MONGO_URL;

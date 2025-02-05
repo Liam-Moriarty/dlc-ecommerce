@@ -6,6 +6,9 @@ import Signup from "./pages/Signup";
 import Layout from "./components/layouts/Layout";
 import Profile from "./pages/Profile";
 import ProductDetails from "./pages/ProductDetails";
+import Cart from "./pages/Cart";
+import SpecialLayout from "./components/layouts/SpecialLayout";
+import Favorites from "./pages/Favorites";
 
 // Protected Route wrapper component
 const ProtectedRoute = ({ children }) => {
@@ -23,6 +26,7 @@ function App() {
 
   return (
     <Routes>
+      {/* routes for login and signup page */}
       <Route
         path="/login"
         element={isLoggedIn ? <Navigate to="/" replace /> : <Login />}
@@ -32,6 +36,7 @@ function App() {
         element={isLoggedIn ? <Navigate to="/" replace /> : <Signup />}
       />
 
+      {/* routes for general page */}
       <Route
         path="/"
         element={
@@ -44,8 +49,22 @@ function App() {
       >
         <Route index element={<Home />} />
         <Route path="about" element={<About />} />
+      </Route>
+
+      {/* routes for special layout page */}
+      <Route
+        element={
+          <ProtectedRoute>
+            <SpecialLayout>
+              <Outlet />
+            </SpecialLayout>
+          </ProtectedRoute>
+        }
+      >
         <Route path="profile" element={<Profile />} />
         <Route path="/product-details/:id" element={<ProductDetails />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/favorites" element={<Favorites />} />
       </Route>
 
       {/* Catch all route - redirect to login if not authenticated */}

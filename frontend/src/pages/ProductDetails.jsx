@@ -1,21 +1,26 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import { saleCards } from "../constant";
 
 import { BiSolidCategory } from "react-icons/bi";
 import { FaArrowUpLong } from "react-icons/fa6";
 import Button from "../components/Button";
+import { useGetAllProductsQuery } from "../api/productsApi";
 
 const ProductDetails = () => {
+  const { data } = useGetAllProductsQuery();
+
   const { id } = useParams();
 
-  const product = saleCards.find((p) => p._id === id);
+  const product = data.find((p) => p._id === id);
 
   if (!product) {
     return <h2>Product not found</h2>;
   }
 
-  console.log(product);
+  const handleAddToCart = (e) => {
+    e.preventDefault();
+    //
+  };
 
   return (
     <div className="bg-primary w-full h-auto p-10 mb-10">
@@ -33,7 +38,7 @@ const ProductDetails = () => {
           {/* product details */}
           <div className="w-full h-full flex flex-col justify-between gap-3 p-10 shadow-lg rounded-lg">
             <h1 className="text-4xl max-lg:text-2xl font-bold text-black-text uppercase leading-tight line-clamp-1">
-              {product.label}
+              {product.product}
             </h1>
 
             <div className="flex justify-start items-center gap-2">
@@ -50,7 +55,7 @@ const ProductDetails = () => {
             <div className="flex justify-start items-center">
               <FaArrowUpLong className="text-base max-lg:text-sm font-medium text-black-text" />
               <p className="text-base max-lg:text-sm font-semibold text-black-text capitalize">
-                {product.stock}{" "}
+                {product.quantityInStock}{" "}
                 <span className="text-gray-text font-medium">Stocks left</span>
               </p>
             </div>

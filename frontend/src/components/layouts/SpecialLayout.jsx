@@ -1,15 +1,15 @@
 import React from "react";
-import { Navbar, Header, Footer } from "./index";
+import Footer from "./Footer";
+import Navbar from "./Navbar";
 
-const Layout = ({ children }) => {
+const SpecialLayout = ({ children }) => {
   return (
     <main className="container max-desktop:w-full">
       <Navbar />
-      <Header />
       {children}
       <Footer />
     </main>
   );
 };
 
-export default Layout;
+export default SpecialLayout;
