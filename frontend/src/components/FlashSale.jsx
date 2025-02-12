@@ -38,7 +38,7 @@ const FlashSale = () => {
   }, []);
 
   return (
-    <div className="w-full h-auto flex justify-between gap-3 items-center max-lg:flex-col max-lg:items-start px-10 py-6">
+    <div className="w-full h-auto flex justify-between gap-3 items-center max-lg:flex-col max-lg:items-start px-10 max-md:px-5 py-6">
       {/* left side */}
       <div className="flex justify-start items-center gap-4 max-sm:gap-2">
         <div className="flex justify-center items-center max-sm:gap-1 gap-2">

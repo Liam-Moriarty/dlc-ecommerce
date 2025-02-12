@@ -32,6 +32,7 @@ export default {
         // hovers
         "black-hover": "#151c46",
         "white-hover": "#e4e4e4",
+        "red-hover": "#f25b5b",
 
         // login / signup colors
         "auth-main": "#403A4D",

@@ -8,7 +8,7 @@ export const addToCart = async (req, res) => {
     const { productId, quantity } = req.body;
 
     if (!productId || !mongoose.Types.ObjectId.isValid(productId)) {
-      return res.status(400).json({ message: "Invalid productId" });
+      return res.status(400).json({ message: "No product id found" });
     }
 
     const client = await Client.findById(req.client._id);
@@ -58,6 +58,11 @@ export const cartItems = async (req, res) => {
         .json({ status: "Failed", message: "Client not found" });
     }
 
+    client.cart.sort(
+      (a, b) =>
+        new Date(b.productId.updatedAt) - new Date(a.productId.updatedAt)
+    );
+
     return res.status(200).json(client);
   } catch (error) {
     res.status(400).json({ message: error.message });
@@ -83,6 +88,22 @@ export const removeItems = async (req, res) => {
     await client.save({ validateBeforeSave: false });
 
     res.json({ message: "Item removed from cart", cart: client.cart });
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
+};
+
+export const getProductId = async (req, res) => {
+  try {
+    const cart = await Products.findById(req.params.id);
+
+    if (!cart) {
+      return res
+        .status(404)
+        .json({ status: "Failed", message: "Item not found" });
+    }
+
+    return res.status(200).json(cart);
   } catch (error) {
     res.status(400).json({ message: error.message });
   }

@@ -12,6 +12,7 @@ import profileReducer from "../auth/profileSlice";
 import { authenticationApi } from "../api/authenticatonApi";
 import { profileApi } from "../api/profileApi";
 import { productsApi } from "../api/productsApi";
+import { cartApi } from "../api/cartApi";
 
 export const store = configureStore({
   reducer: {
@@ -22,6 +23,7 @@ export const store = configureStore({
     [authenticationApi.reducerPath]: authenticationApi.reducer,
     [profileApi.reducerPath]: profileApi.reducer,
     [productsApi.reducerPath]: productsApi.reducer,
+    [cartApi.reducerPath]: cartApi.reducer,
   },
   // Adding the api middleware enables caching, invalidation, polling,
   // and other useful features of `rtk-query`.
@@ -30,7 +32,8 @@ export const store = configureStore({
     getDefaultMiddleware().concat(
       authenticationApi.middleware,
       profileApi.middleware,
-      productsApi.middleware
+      productsApi.middleware,
+      cartApi.middleware
     ),
 });
 

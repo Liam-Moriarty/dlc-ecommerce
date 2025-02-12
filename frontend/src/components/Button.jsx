@@ -7,6 +7,7 @@ const Button = ({ variant, className, onClick, submit, label, icon }) => {
       "bg-black px-6 text-white-text border border-black hover:bg-black-hover",
     outline:
       "bg-transparent border border-black px-4 hover:bg-white-hover text-black-text",
+    delete: "bg-red border-none px-4 text-black-text hover:bg-red-hover",
   };
 
   const buttonStyle = `${baseStyle} ${variants[variant] || ""} ${className}`;

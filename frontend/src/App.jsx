@@ -9,10 +9,11 @@ import ProductDetails from "./pages/ProductDetails";
 import Cart from "./pages/Cart";
 import SpecialLayout from "./components/layouts/SpecialLayout";
 import Favorites from "./pages/Favorites";
+import { useSelector } from "react-redux";
 
 // Protected Route wrapper component
 const ProtectedRoute = ({ children }) => {
-  const isLoggedIn = window.localStorage.getItem("token");
+  const isLoggedIn = useSelector((state) => state.loginForm.email);
 
   if (!isLoggedIn) {
     return <Navigate to="/login" replace />;
@@ -22,7 +23,8 @@ const ProtectedRoute = ({ children }) => {
 };
 
 function App() {
-  const isLoggedIn = window.localStorage.getItem("token");
+  // const isLoggedIn = window.localStorage.getItem("token");
+  const isLoggedIn = useSelector((state) => state.loginForm.token);
 
   return (
     <Routes>

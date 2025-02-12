@@ -46,7 +46,7 @@ const Carousel = () => {
     );
 
   return (
-    <div className="py-5 px-10">
+    <div className="py-5 px-10 max-md:px-5">
       <Slider {...carouselSettings}>{product}</Slider>
     </div>
   );

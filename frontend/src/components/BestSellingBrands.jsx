@@ -5,8 +5,8 @@ import { sellingBrands } from "../constant";
 
 const BestSellingBrands = () => {
   return (
-    <div className="w-full h-auto px-10 py-6 max-md:p-10">
-      <h2 className="text-center text-2xl font-bold tracking-wide text-black-text uppercase mb-5">
+    <div className="w-full h-auto px-10 py-6 max-md:p-5">
+      <h2 className="text-center text-2xl max-sm:text-xl font-bold tracking-wide text-black-text uppercase mb-5">
         Best Selling Brands
       </h2>
 

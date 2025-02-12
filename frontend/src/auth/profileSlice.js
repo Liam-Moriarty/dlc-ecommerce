@@ -20,8 +20,6 @@ const profileSlice = createSlice({
   },
 });
 
-console.log("Initial State : ", initialState);
-
 export const { updateProfile, cleanProfile } = profileSlice.actions;
 
 export default profileSlice.reducer;

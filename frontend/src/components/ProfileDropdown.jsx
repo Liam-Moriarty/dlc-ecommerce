@@ -1,14 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../auth/loginSlice";
 
 const ProfileDropdown = () => {
   const navigate = useNavigate();
+  const email = useSelector((state) => state.loginForm.email);
   const dispatch = useDispatch();
   const [openProfile, setOpenProfile] = useState(false);
 
-  const email = window.localStorage.getItem("email");
+  // const email = window.localStorage.getItem("email");
 
   const handleProfileDropdown = () => {
     setOpenProfile(!openProfile);

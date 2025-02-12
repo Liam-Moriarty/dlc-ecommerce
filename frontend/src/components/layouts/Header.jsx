@@ -4,7 +4,7 @@ import arrivalImg from "../../assets/test-3.png";
 
 const Header = () => {
   return (
-    <div className="px-10 py-5 h-[30rem] max-md:h-auto flex justify-between max-md:flex-col gap-4">
+    <div className="px-10 max-md:px-5 py-5 h-[30rem] max-md:h-auto flex justify-between max-md:flex-col gap-4">
       {/* Left New Arrival Details */}
       <div className="max-w-[60rem] w-full p-10 max-lg:p-6 h-full bg-white rounded-3xl flex gap-2 items-center max-[480px]:flex-col">
         <div className="w-full flex-col items-start">

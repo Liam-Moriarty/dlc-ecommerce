@@ -15,8 +15,8 @@ const Footer = () => {
     { icon: <FaSquareInstagram className="text-black-text" /> },
   ];
   return (
-    <div className="px-10 h-[25rem] max-lg:h-auto">
-      <div className="w-full p-10 h-full bg-white rounded-t-3xl flex flex-col justify-between items-start">
+    <div className="px-10 max-md:px-5 h-[25rem] max-lg:h-auto">
+      <div className="w-full p-10 max-md:p-5 h-full bg-white rounded-t-3xl flex flex-col justify-between items-start">
         {/* top side */}
         <div className="w-full h-auto flex justify-between items-start max-md:flex-col">
           {/* left side */}

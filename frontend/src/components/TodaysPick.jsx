@@ -55,7 +55,7 @@ const TodaysPick = () => {
     );
 
   return (
-    <div className="w-full h-auto p-10 flex flex-col gap-8">
+    <div className="w-full h-auto p-10 max-md:p-5 flex flex-col gap-8">
       <div className="w-full h-auto flex justify-center flex-col items-center gap-8 mb-10  max-md:gap-2">
         <div className="text-center max-w-[30rem] flex-wrap">
           <h2 className="text-2xl font-bold whitespace-pre text-black-text">

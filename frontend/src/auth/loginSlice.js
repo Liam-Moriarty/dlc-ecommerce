@@ -18,7 +18,8 @@ const loginSlice = createSlice({
     logout: (state, action) => {
       state.email = null;
       state.token = null;
-      localStorage.clear();
+      localStorage.removeItem("email");
+      localStorage.removeItem("token");
 
       authenticationApi.util.resetApiState();
     },
