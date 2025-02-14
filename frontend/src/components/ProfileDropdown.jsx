@@ -17,8 +17,6 @@ const ProfileDropdown = () => {
 
   const splitEmail = email ? email.split("@")[0] : "User";
 
-  console.log(splitEmail);
-
   const handleLogout = (e) => {
     e.preventDefault();
     dispatch(logout());

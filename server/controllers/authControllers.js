@@ -115,6 +115,7 @@ export const login = async (req, res) => {
       company: client.company,
       contacts: client.contacts,
       city: client.city,
+      clientId: client._id,
     });
   } catch (error) {
     res.status(400).json({ status: "Failed", message: error.message });

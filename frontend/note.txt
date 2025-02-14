@@ -1,4 +1,5 @@
 * HIGH PRIORITY *
+- BUY ITEM PAGE
 - PAYMENT GATEWAY
 - FAVORITES PAGE
 
@@ -8,4 +9,17 @@
 * BUGS *
 
 - CART DOESNT SHOW UP WHEN LOGING IN NEED TO REFRESH FIRST
-- RESPONSIVE DESIGN
+
+
+- TRANSACTION INFORMATION
+{
+    "clientId": "66f79f01aff515245b6f9da9", //
+    "productId": "67003aecf7d0b4e213c0284e", //
+    "price": 2500, //
+    "quantity": 2, //
+    "priceAtSale": 10%, //
+    "total": 123000, //
+    "paymentMethod": "g-cash",
+    "statusOrder": "pending",
+    "saleDate": "2025"
+}

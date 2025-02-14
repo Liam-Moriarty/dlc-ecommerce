@@ -1,4 +1,13 @@
-const Button = ({ variant, className, onClick, submit, label, icon }) => {
+const Button = ({
+  variant,
+  className,
+  onClick,
+  submit,
+  label,
+  icon,
+  name,
+  value,
+}) => {
   const baseStyle =
     "flex justify-center items-center whitespace-pre gap-2 rounded-md py-1";
 
@@ -15,6 +24,8 @@ const Button = ({ variant, className, onClick, submit, label, icon }) => {
     <button
       className={buttonStyle}
       onClick={onClick}
+      name={name}
+      value={value}
       submit={submit ? "submit" : "button"}
     >
       {icon}

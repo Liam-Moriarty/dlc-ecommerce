@@ -20,6 +20,7 @@ const loginSlice = createSlice({
       state.token = null;
       localStorage.removeItem("email");
       localStorage.removeItem("token");
+      localStorage.removeItem("_id");
 
       authenticationApi.util.resetApiState();
     },

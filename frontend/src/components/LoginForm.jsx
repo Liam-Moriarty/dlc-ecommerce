@@ -31,6 +31,10 @@ const LoginForm = () => {
 
       localStorage.setItem("token", result.result);
       localStorage.setItem("email", result.email);
+      localStorage.setItem("contacts", result.contacts);
+      localStorage.setItem("city", result.city);
+      localStorage.setItem("company", result.company);
+      localStorage.setItem("_id", result.clientId);
 
       dispatch(
         createLogin({

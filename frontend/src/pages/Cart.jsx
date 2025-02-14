@@ -1,3 +1,4 @@
+import { useNavigate, useParams } from "react-router-dom";
 import { useGetCartQuery, useRemoveToCartMutation } from "../api/cartApi";
 
 import Button from "../components/Button";
@@ -6,12 +7,16 @@ import Toast from "../components/Toast";
 import { IoMdTrash, IoIosCart } from "react-icons/io";
 
 const Cart = () => {
+  const navigate = useNavigate();
   const { data, isLoading, error } = useGetCartQuery();
   const [removeToCart] = useRemoveToCartMutation();
   const cartData = data?.cart ? data.cart : [];
 
   const loading = isLoading && "Loading...";
   const isError = error && `${error}`;
+  const emptyCart = data?.cart === undefined || [] ? "No Items in Cart" : null;
+
+  console.log(cartData);
 
   const handleRemoveItem = async (id) => {
     try {
@@ -26,6 +31,10 @@ const Cart = () => {
     }
   };
 
+  const handleBuyItem = (id, quantity) => {
+    navigate(`/product-details/${id}`, { state: { quantity } });
+  };
+
   return (
     <div className="bg-primary w-full h-auto p-10 max-md:p-5 mb-10">
       <div className="px-5 max-md:p-2 py-4 rounded-3xl bg-white w-full h-auto flex flex-col gap-4">
@@ -35,9 +44,25 @@ const Cart = () => {
 
         {cartData.length > 0 ? (
           cartData.map((item, index) => {
-            const { image, product, category, price, _id } = item.productId;
+            const { image, product, category, price, priceAtSale, _id } =
+              item.productId;
 
-            const totalPrice = price * item.quantity;
+            // calculate total cost of the item
+            const calculateTotalPrice = () => {
+              const quantity = item.quantity;
+              const discount =
+                priceAtSale && priceAtSale !== "no discount"
+                  ? parseFloat(priceAtSale) / 100
+                  : 0;
+
+              const discountAmount = price * discount;
+              const discountedPrice = price - discountAmount;
+              const totalCost = discountedPrice * quantity;
+
+              const totalPrice = totalCost.toLocaleString();
+              return totalPrice;
+            };
+
             return (
               <div
                 key={index}
@@ -52,20 +77,26 @@ const Cart = () => {
                 </div>
 
                 <div className="w-full h-full bg-white flex flex-col items-start justify-between gap-2 rounded-xl p-5 max-md:py-5 max-md:px-2 leading-tight">
-                  <p className="text-xl font-bold text-black-text uppercase">
+                  <p className="text-lg font-bold text-black-text uppercase">
                     {product}
                   </p>
 
-                  <p className="text-xs font-bold text-gray-text capitalize">
+                  <p className="text-lg font-bold text-black-text uppercase">
+                    {`₱${price.toLocaleString()}`}
+                  </p>
+
+                  <p className="text-sm font-medium text-gray-text capitalize">
                     {category}
                   </p>
 
-                  <span className="text-base font-bold text-black-text capitalize flex justify-center items-center">
-                    <p>{`Quantity: ${item.quantity}`}</p>
-                  </span>
+                  <p className="text-sm font-medium text-gray-text capitalize flex justify-center items-center gap-1">
+                    Quantity:{" "}
+                    <span className="text-black-text">{`${item.quantity}`}</span>
+                  </p>
 
-                  <p className="text-base font-bold text-black-text capitalize">
-                    {`Price: ₱${totalPrice.toLocaleString()}`}
+                  <p className="text-sm font-medium text-gray-text capitalize flex justify-center items-center gap-1">
+                    Total:
+                    <span className="text-black-text">{`₱${calculateTotalPrice()}`}</span>
                   </p>
 
                   <div className="w-full flex justify-start items-center flex-wrap gap-2">
@@ -76,6 +107,7 @@ const Cart = () => {
                       }
                       label="Buy Item"
                       className="!px-3 !py-2 max-md:!px-2 max-md:text-sm max-sm:w-full"
+                      onClick={() => handleBuyItem(_id, item.quantity)}
                     />
                     <Button
                       variant="delete"
@@ -96,7 +128,7 @@ const Cart = () => {
             <p className="w-full text-base text-black-text font-bold">
               {loading ? loading : null}
               {isError ? error : null}
-              No Items to the cart
+              {!loading ? emptyCart : null}
             </p>
           </div>
         )}

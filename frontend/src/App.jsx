@@ -1,4 +1,5 @@
 import { Navigate, Outlet, Route, Routes } from "react-router-dom";
+import { useSelector } from "react-redux";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Login from "./pages/Login";
@@ -9,7 +10,7 @@ import ProductDetails from "./pages/ProductDetails";
 import Cart from "./pages/Cart";
 import SpecialLayout from "./components/layouts/SpecialLayout";
 import Favorites from "./pages/Favorites";
-import { useSelector } from "react-redux";
+import CheckOutPage from "./pages/CheckOutPage";
 
 // Protected Route wrapper component
 const ProtectedRoute = ({ children }) => {
@@ -67,6 +68,7 @@ function App() {
         <Route path="/product-details/:id" element={<ProductDetails />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/favorites" element={<Favorites />} />
+        <Route path="/checkout/:id" element={<CheckOutPage />} />
       </Route>
 
       {/* Catch all route - redirect to login if not authenticated */}

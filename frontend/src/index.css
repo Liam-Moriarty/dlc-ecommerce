@@ -56,6 +56,14 @@ body {
   .pagination-disable {
     @apply opacity-50 cursor-not-allowed;
   }
+
+  .checkout-input {
+    @apply border border-gray rounded-md py-2 px-4 outline-none text-base text-black-text font-normal;
+  }
+
+  .checkout-label {
+    @apply text-base text-black-text font-semibold;
+  }
 }
 
 @layer base {
