@@ -11,6 +11,7 @@ import Cart from "./pages/Cart";
 import SpecialLayout from "./components/layouts/SpecialLayout";
 import Favorites from "./pages/Favorites";
 import CheckOutPage from "./pages/CheckOutPage";
+import Orders from "./pages/Orders";
 
 // Protected Route wrapper component
 const ProtectedRoute = ({ children }) => {
@@ -69,6 +70,7 @@ function App() {
         <Route path="/cart" element={<Cart />} />
         <Route path="/favorites" element={<Favorites />} />
         <Route path="/checkout/:id" element={<CheckOutPage />} />
+        <Route path="/orders" element={<Orders />} />
       </Route>
 
       {/* Catch all route - redirect to login if not authenticated */}

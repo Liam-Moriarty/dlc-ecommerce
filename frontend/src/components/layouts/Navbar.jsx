@@ -1,7 +1,8 @@
-import { IoSearchSharp } from "react-icons/io5";
+import { IoSearchSharp, IoBagCheck } from "react-icons/io5";
 import { FaShoppingCart } from "react-icons/fa";
 import { FaBell } from "react-icons/fa";
 import { FaHeart } from "react-icons/fa";
+import { BsBagCheckFill } from "react-icons/bs";
 
 import logo from "../../assets/machine-learning-(1).png";
 import ProfileDropdown from "../ProfileDropdown";
@@ -46,7 +47,10 @@ const Navbar = () => {
             <Link to="/cart" className="w-auto h-auto">
               <FaShoppingCart className="text-xl text-black-text font-semibold cursor-pointer" />
             </Link>
-            <FaBell className="text-xl text-black-text font-semibold cursor-pointer" />
+
+            <Link to="/orders" className="w-auto h-auto">
+              <BsBagCheckFill className="text-xl text-black-text font-semibold cursor-pointer" />
+            </Link>
           </div>
 
           <ProfileDropdown />

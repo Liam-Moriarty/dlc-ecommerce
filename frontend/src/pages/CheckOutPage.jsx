@@ -1,13 +1,24 @@
 import ProductSummary from "../components/ProductSummary";
 import Receipt from "../components/Receipt";
 import Button from "../components/Button";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import ShippingDetails from "../components/ShippingDetails";
 
 const CheckOutPage = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const { checkOutItem } = location.state || {};
   console.log(checkOutItem);
+
+  const handleCheckoutItem = (e) => {
+    e.preventDefault();
+    navigate("/orders");
+  };
+
+  const handleCancelItem = (e) => {
+    e.preventDefault();
+    navigate("/cart");
+  };
 
   return (
     <div className="bg-primary w-full h-auto p-10 mb-10 max-md:p-5 max-md:mb-5">
@@ -51,8 +62,16 @@ const CheckOutPage = () => {
               <ShippingDetails checkOutItem={checkOutItem} />
 
               <div className="flex justify-start items-center gap-4 my-10">
-                <Button label="Checkout" variant="primary" />
-                <Button label="Cancel" variant="outline" />
+                <Button
+                  label="Checkout"
+                  variant="primary"
+                  onClick={handleCheckoutItem}
+                />
+                <Button
+                  label="Cancel"
+                  variant="outline"
+                  onClick={handleCancelItem}
+                />
               </div>
             </div>
 

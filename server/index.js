@@ -8,6 +8,7 @@ import authRoutes from "./routes/authRoutes.js";
 import profileRoutes from "./routes/profileRoutes.js";
 import productsRoutes from "./routes/productsRoutes.js";
 import cartRoutes from "./routes/cartRoutes.js";
+import transactionRoutes from "./routes/transactionRoutes.js";
 
 // CONFIGURATION
 dotenv.config();
@@ -22,6 +23,7 @@ app.use("/", authRoutes);
 app.use("/profile", profileRoutes);
 app.use("/", productsRoutes);
 app.use("/cart", cartRoutes);
+app.use("/orders", transactionRoutes);
 
 const PORT = process.env.PORT || 8000;
 const MONGO_URL = process.env.MONGO_URL;
