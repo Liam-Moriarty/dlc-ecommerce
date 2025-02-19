@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 const baseQuery = fetchBaseQuery({
-  baseUrl: "http://localhost:3000/",
+  baseUrl: import.meta.env.VITE_BASE_URL,
   prepareHeaders: (headers, { getState }) => {
     const token = getState().signupForm.token; // Retrieve the token from Redux state
     if (token) {

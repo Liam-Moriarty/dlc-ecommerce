@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 const baseQuery = fetchBaseQuery({
-  baseUrl: "http://localhost:3000/cart/",
+  baseUrl: `${import.meta.env.VITE_BASE_URL}`,
   prepareHeaders: (headers, { getState }) => {
     const token = getState().loginForm.token; // Access token from Redux state
     if (token) {
@@ -18,7 +18,7 @@ export const cartApi = createApi({
   endpoints: (builder) => ({
     addToCart: builder.mutation({
       query: (cartItem) => ({
-        url: "add-cart",
+        url: "cart/add-cart",
         method: "POST",
         body: cartItem,
       }),
@@ -26,18 +26,18 @@ export const cartApi = createApi({
     }),
     removeToCart: builder.mutation({
       query: (productId) => ({
-        url: "remove-items",
+        url: "cart/remove-items",
         method: "DELETE",
         body: { productId },
       }),
       invalidatesTags: ["Cart"],
     }),
     getCart: builder.query({
-      query: () => "cart-items",
+      query: () => "cart/cart-items",
       providesTags: ["Cart"],
     }),
     getProductById: builder.query({
-      query: (id) => `cart-items/${id}`,
+      query: (id) => `cart/cart-items/${id}`,
       providesTags: ["Cart"],
     }),
   }),

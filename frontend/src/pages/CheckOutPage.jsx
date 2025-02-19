@@ -3,6 +3,9 @@ import Receipt from "../components/Receipt";
 import Button from "../components/Button";
 import { useLocation, useNavigate } from "react-router-dom";
 import ShippingDetails from "../components/ShippingDetails";
+import { useSendCheckoutMutation } from "../api/transactionApi";
+import { useState } from "react";
+import Toast from "../components/Toast";
 
 const CheckOutPage = () => {
   const location = useLocation();
@@ -10,9 +13,59 @@ const CheckOutPage = () => {
   const { checkOutItem } = location.state || {};
   console.log(checkOutItem);
 
-  const handleCheckoutItem = (e) => {
+  const [sendCheckout] = useSendCheckoutMutation();
+  const [error, setError] = useState("");
+
+  const [sendCheckoutItem, setSendCheckoutItem] = useState({
+    clientId: checkOutItem.clientId,
+    productId: checkOutItem.productId,
+    price: checkOutItem.price,
+    quantity: checkOutItem.quantity,
+    priceAtSale: checkOutItem.priceAtSale,
+    total: checkOutItem.total,
+    paymentMethod: checkOutItem.paymentMethod,
+    statusOrder: checkOutItem.statusOrder,
+    saleDate: new Date().toISOString().split("T")[0],
+  });
+
+  const handleCheckoutItem = async (e) => {
     e.preventDefault();
-    navigate("/orders");
+    try {
+      const {
+        clientId,
+        productId,
+        price,
+        quantity,
+        priceAtSale,
+        total,
+        paymentMethod,
+        statusOrder,
+        saleDate,
+      } = sendCheckoutItem;
+
+      const payload = {
+        clientId,
+        productId,
+        price,
+        quantity,
+        priceAtSale,
+        total,
+        paymentMethod,
+        statusOrder,
+        saleDate,
+      };
+
+      const result = await sendCheckout(payload).unwrap();
+
+      console.log("products transaction: ", result);
+
+      Toast("success", "Thank Your for Ordering");
+
+      navigate("/orders");
+    } catch (error) {
+      const errorMessage = error?.data?.message || "Something went wrong";
+      setError(errorMessage);
+    }
   };
 
   const handleCancelItem = (e) => {

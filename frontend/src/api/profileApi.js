@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 const baseQuery = fetchBaseQuery({
-  baseUrl: "http://localhost:3000/profile/",
+  baseUrl: `${import.meta.env.VITE_BASE_URL}`,
   prepareHeaders: (headers, { getState }) => {
     const token = getState().loginForm.token; // Access token from Redux state
     if (token) {
@@ -18,7 +18,7 @@ export const profileApi = createApi({
   endpoints: (builder) => ({
     updatedProfile: builder.mutation({
       query: (updateProfile) => ({
-        url: "update-profile",
+        url: "profile/update-profile",
         method: "PUT",
         body: updateProfile,
       }),
@@ -26,14 +26,14 @@ export const profileApi = createApi({
     }),
     changePassword: builder.mutation({
       query: (updatedPassword) => ({
-        url: "changePassword",
+        url: "profile/changePassword",
         method: "PUT",
         body: updatedPassword,
       }),
     }),
     getProfileData: builder.query({
       query: () => ({
-        url: "clients",
+        url: "profile/clients",
         method: "GET",
       }),
     }),

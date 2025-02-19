@@ -118,7 +118,10 @@ const SignupForm = () => {
 
         <div
           className={`input-auth-container ${
-            emptyFields.includes("contacts") ? "input-error" : null
+            emptyFields.includes("contacts") ||
+            error === "Contacts must be a 10-digit number starting with 9"
+              ? "input-error"
+              : null
           }`}
         >
           <input
@@ -133,7 +136,10 @@ const SignupForm = () => {
 
         <div
           className={`input-auth-container ${
-            emptyFields.includes("email") ? "input-error" : null
+            emptyFields.includes("email") ||
+            error === "Please enter a valid email!!"
+              ? "input-error"
+              : null
           }`}
         >
           <input
@@ -148,7 +154,10 @@ const SignupForm = () => {
 
         <div
           className={`input-auth-container ${
-            emptyFields.includes("password") ? "input-error" : null
+            emptyFields.includes("password") ||
+            error === "password didn't match"
+              ? "input-error"
+              : null
           }`}
         >
           <input
@@ -163,7 +172,10 @@ const SignupForm = () => {
 
         <div
           className={`input-auth-container ${
-            emptyFields.includes("confirmPassword") ? "input-error" : null
+            emptyFields.includes("confirmPassword") ||
+            error === "password didn't match"
+              ? "input-error"
+              : null
           }`}
         >
           <input

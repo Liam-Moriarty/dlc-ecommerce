@@ -1,25 +1,13 @@
 * HIGH PRIORITY *
-- SEND CHECKOUT DATA TO THE TRANSACTION SCHEMA IN DATABASE
-- ORDERS PAGE
 - FAVORITES PAGE
 
 * LESS PRIORITY *
 - ADD ABOUT PAGE
 
 * BUGS *
-
+* CLIENT SIDE *
 - CART DOESNT SHOW UP WHEN LOGING IN NEED TO REFRESH FIRST
+- ADD VALIDATION IF THE TRANSACTION ID IS NOT PRESENT IN ORDERS PAGE
 
 
-- TRANSACTION INFORMATION
-{
-    "clientId": "66f79f01aff515245b6f9da9", //
-    "productId": "67003aecf7d0b4e213c0284e", //
-    "price": 2500, //
-    "quantity": 2, //
-    "priceAtSale": 10%, //
-    "total": 123000, //
-    "paymentMethod": "g-cash",
-    "statusOrder": "pending",
-    "saleDate": "2025"
-}
+* ADMIN SIDE *

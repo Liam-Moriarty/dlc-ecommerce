@@ -1,17 +1,19 @@
 import { Navigate, Outlet, Route, Routes } from "react-router-dom";
 import { useSelector } from "react-redux";
-import Home from "./pages/Home";
-import About from "./pages/About";
-import Login from "./pages/Login";
-import Signup from "./pages/Signup";
 import Layout from "./components/layouts/Layout";
-import Profile from "./pages/Profile";
-import ProductDetails from "./pages/ProductDetails";
-import Cart from "./pages/Cart";
 import SpecialLayout from "./components/layouts/SpecialLayout";
-import Favorites from "./pages/Favorites";
-import CheckOutPage from "./pages/CheckOutPage";
-import Orders from "./pages/Orders";
+import {
+  About,
+  Cart,
+  CheckOutPage,
+  Favorites,
+  Home,
+  Login,
+  Orders,
+  ProductDetails,
+  Profile,
+  Signup,
+} from "./pages/index.js";
 
 // Protected Route wrapper component
 const ProtectedRoute = ({ children }) => {

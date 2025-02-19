@@ -118,9 +118,12 @@ export const clientOrders = async (req, res) => {
 // GET ALL THE ORDERS
 export const getOrders = async (req, res) => {
   try {
-    const order = await Client.findById(req.client._id).populate(
-      "orders.transactionId"
-    );
+    const order = await Client.findById(req.client._id).populate({
+      path: "orders.transactionId",
+      populate: {
+        path: "productId", // Populate the productId inside transactionId
+      },
+    });
 
     if (!order) {
       return res

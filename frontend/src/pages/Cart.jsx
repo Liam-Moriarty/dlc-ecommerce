@@ -106,7 +106,7 @@ const Cart = () => {
                         <IoIosCart className="text-base max-sm:text-xs text-white-text font-bold" />
                       }
                       label="Buy Item"
-                      className="!px-3 !py-2 max-md:!px-2 max-md:text-sm max-sm:w-full"
+                      className="!px-3 !py-2 max-md:!px-2 !text-sm max-sm:w-full !font-semibold"
                       onClick={() => handleBuyItem(_id, item.quantity)}
                     />
                     <Button
@@ -115,7 +115,7 @@ const Cart = () => {
                         <IoMdTrash className="text-base max-sm:text-xs text-black-text" />
                       }
                       label="Delete to Cart"
-                      className="!px-3 !py-2 max-md:!px-2 max-md:text-sm max-sm:w-full"
+                      className="!px-3 !py-2 max-md:!px-2 !text-sm max-sm:w-full !font-semibold"
                       onClick={() => handleRemoveItem(_id)}
                     />
                   </div>
