@@ -14,6 +14,7 @@ import { profileApi } from "../api/profileApi";
 import { productsApi } from "../api/productsApi";
 import { cartApi } from "../api/cartApi";
 import { transactionApi } from "../api/transactionApi";
+import { favoritesApi } from "../api/favoritesApi";
 
 export const store = configureStore({
   reducer: {
@@ -26,6 +27,7 @@ export const store = configureStore({
     [productsApi.reducerPath]: productsApi.reducer,
     [cartApi.reducerPath]: cartApi.reducer,
     [transactionApi.reducerPath]: transactionApi.reducer,
+    [favoritesApi.reducerPath]: favoritesApi.reducer,
   },
   // Adding the api middleware enables caching, invalidation, polling,
   // and other useful features of `rtk-query`.
@@ -36,7 +38,8 @@ export const store = configureStore({
       profileApi.middleware,
       productsApi.middleware,
       cartApi.middleware,
-      transactionApi.middleware
+      transactionApi.middleware,
+      favoritesApi.middleware
     ),
 });
 

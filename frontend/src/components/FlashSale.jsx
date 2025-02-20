@@ -8,7 +8,7 @@ const FlashSale = () => {
   let interval = useRef();
 
   const startTimer = () => {
-    const countDownDate = new Date("January 31, 2025 12:00:00").getTime();
+    const countDownDate = new Date("March 31, 2025 12:00:00").getTime();
 
     interval = setInterval(() => {
       const now = new Date().getTime();
