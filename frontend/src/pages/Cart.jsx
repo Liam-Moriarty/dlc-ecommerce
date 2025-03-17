@@ -12,6 +12,8 @@ const Cart = () => {
   const [removeToCart] = useRemoveToCartMutation();
   const cartData = data?.cart ? data.cart : [];
 
+  console.log(cartData);
+
   const loading = isLoading && "Loading...";
   const isError = error && `${error}`;
   const emptyCart = data?.cart === undefined || [] ? "No Items in Cart" : null;

@@ -144,8 +144,6 @@ export const protectRoutes = async (req, res, next) => {
           .json({ status: "Failed", message: "Invalid Token" });
       }
 
-      console.log("decoded token", decodedToken);
-
       const client = await Client.findById(decodedToken.id);
 
       if (!client) {

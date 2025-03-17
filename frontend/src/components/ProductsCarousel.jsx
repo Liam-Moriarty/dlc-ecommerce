@@ -2,6 +2,7 @@ import { memo, useEffect, useState } from "react";
 import { MdOutlineArrowUpward } from "react-icons/md";
 import { FaHeart } from "react-icons/fa";
 
+import Toast from "./Toast";
 import Button from "./Button";
 import { Link } from "react-router-dom";
 import {
@@ -30,9 +31,11 @@ const ProductsCarousel = memo(
     const handleFavorite = async () => {
       if (!favorite) {
         await addFavorites({ productsId: _id });
+        Toast("success", "Successfully Added to Favorites!!");
         setFavorite(true);
       } else {
         await deleteFavorite({ productsId: _id });
+        Toast("error", "Successfully Remove to Favorites!!");
         setFavorite(false);
       }
     };

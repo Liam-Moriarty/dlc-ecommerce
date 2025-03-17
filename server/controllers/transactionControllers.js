@@ -131,7 +131,9 @@ export const getOrders = async (req, res) => {
         .json({ status: "Failed", message: "Order not found" });
     }
 
-    const orders = order.orders.map((item) => item.transactionId);
+    const orders = order.orders
+      .map((item) => item.transactionId)
+      .filter((transaction) => transaction && transaction.updatedAt); // Filter out null or missing data
 
     orders.sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt));
 
