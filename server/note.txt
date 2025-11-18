@@ -1,0 +1,21 @@
+Advantages of This Setup
+
+Development
+
+Frontend hot reload (npm run dev + volumes)
+
+Backend hot reload (nodemon)
+
+Volumes mount your local code for instant updates
+
+Production
+
+Frontend served via Nginx (optimized build)
+
+Backend runs plain Node.js
+
+No unnecessary volumes
+
+MongoDB persistence is maintained via named volume dlc.
+
+Clean separation between dev and production configs.

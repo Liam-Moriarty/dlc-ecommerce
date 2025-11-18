@@ -5,3 +5,8 @@ password: Ordiales**3210
 ecommerce
 email: fgpfortunegod@gmail.com
 password: 12345678
+
+
+ecommerce
+email: xtreme@gmail.com
+password: 123456789

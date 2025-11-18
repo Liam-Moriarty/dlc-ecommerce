@@ -1,0 +1,38 @@
+# docker-compose.yml (production-ready)
+
+services:
+  web:
+    depends_on:
+      - api
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    image: moriiarty/dlc-ecommerce-web:latest
+    ports:
+      - 5173:5173
+    environment:
+      - VITE_BASE_URL=${VITE_BASE_URL}
+
+  api:
+    depends_on:
+      - db
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    image: moriiarty/dlc-ecommerce-api:latest
+    ports:
+      - 3000:3000
+    environment:
+      - PORT=${PORT}
+      - MONGO_URL=${MONGO_URL}
+      - SECRET=${SECRET}
+
+  db:
+    image: mongo:latest
+    ports:
+      - 27017:27017
+    volumes:
+      - dlc:/data/db
+
+volumes:
+  dlc:
