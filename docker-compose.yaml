@@ -1,25 +1,21 @@
-# docker-compose.yml (production-ready)
-
 services:
   web:
     depends_on:
       - api
-    build:
-      context: ./frontend
-      dockerfile: Dockerfile
+    build: ./frontend
     image: moriiarty/dlc-ecommerce-web:latest
+    container_name: dlc-web
     ports:
-      - 5173:5173
+      - 80:80 # frontend served via nginx
     environment:
       - VITE_BASE_URL=${VITE_BASE_URL}
 
   api:
     depends_on:
       - db
-    build:
-      context: ./server
-      dockerfile: Dockerfile
+    build: ./server
     image: moriiarty/dlc-ecommerce-api:latest
+    container_name: dlc-api
     ports:
       - 3000:3000
     environment:
@@ -29,6 +25,8 @@ services:
 
   db:
     image: mongo:latest
+    container_name: dlc-db
+    restart: always
     ports:
       - 27017:27017
     volumes:

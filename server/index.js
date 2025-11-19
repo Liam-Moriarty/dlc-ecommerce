@@ -2,6 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
 import dotenv from "dotenv";
+import colors from "colors";
 
 // ROUTES
 import authRoutes from "./routes/authRoutes.js";
@@ -18,6 +19,7 @@ const app = express();
 // MIDDLEWARES
 app.use(cors());
 app.use(express.json());
+colors.enable();
 
 // ROUTES
 app.use("/", authRoutes);
@@ -29,6 +31,12 @@ app.use("/favorites", favoritesRoutes);
 
 const PORT = process.env.PORT || 8000;
 const MONGO_URL = process.env.MONGO_URL;
+
+app.get("/", (req, res) => {
+  console.log("Hello World!".rainbow);
+
+  res.send("Hello World!");
+});
 
 mongoose
   .connect(MONGO_URL)
